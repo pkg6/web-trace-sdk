@@ -139,12 +139,12 @@ async function sendWithBeacon(
   try {
     const success = navigator.sendBeacon(endpoint, body);
     if (debug) {
-      console.log("[Node-Trace] Sent with beacon:", success);
+      console.log("[web-trace] Sent with beacon:", success);
     }
     return success;
   } catch (error) {
     if (debug) {
-      console.log("[Node-Trace] Beacon failed:", error);
+      console.log("[web-trace] Beacon failed:", error);
     }
     return false;
   }
@@ -177,12 +177,12 @@ async function sendWithFetch(
     });
 
     if (debug) {
-      console.log("[Node-Trace] Sent with fetch:", res.ok);
+      console.log("[web-trace] Sent with fetch:", res.ok);
     }
     return res.ok;
   } catch (error) {
     if (debug) {
-      console.log("[Node-Trace] Fetch failed:", error);
+      console.log("[web-trace] Fetch failed:", error);
     }
     return false;
   }
@@ -215,21 +215,21 @@ async function sendWithXHR(
     xhr.onload = function () {
       const success = xhr.status >= 200 && xhr.status < 300;
       if (debug) {
-        console.log("[Node-Trace] Sent with XHR:", success);
+        console.log("[web-trace] Sent with XHR:", success);
       }
       resolve(success);
     };
 
     xhr.onerror = function () {
       if (debug) {
-        console.log("[Node-Trace] XHR failed");
+        console.log("[web-trace] XHR failed");
       }
       resolve(false);
     };
 
     xhr.ontimeout = function () {
       if (debug) {
-        console.log("[Node-Trace] XHR timeout");
+        console.log("[web-trace] XHR timeout");
       }
       resolve(false);
     };

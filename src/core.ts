@@ -138,7 +138,7 @@ class Plugins {
     try {
       // Check if plugin name already exists
       if (this.plugins.has(plugin.name)) {
-        console.warn(`[Node-Trace] Plugin ${plugin.name} already registered`)
+        console.warn(`[web-trace] Plugin ${plugin.name} already registered`)
         return false
       }
 
@@ -146,7 +146,7 @@ class Plugins {
       if (plugin.dependencies && plugin.dependencies.length > 0) {
         for (const dep of plugin.dependencies) {
           if (!this.plugins.has(dep)) {
-            console.warn(`[Node-Trace] Plugin ${plugin.name} depends on ${dep}, which is not registered`)
+            console.warn(`[web-trace] Plugin ${plugin.name} depends on ${dep}, which is not registered`)
             return false
           }
         }
@@ -156,7 +156,7 @@ class Plugins {
       if (plugin.conflicts && plugin.conflicts.length > 0) {
         for (const conflict of plugin.conflicts) {
           if (this.plugins.has(conflict)) {
-            console.warn(`[Node-Trace] Plugin ${plugin.name} conflicts with ${conflict}`)
+            console.warn(`[web-trace] Plugin ${plugin.name} conflicts with ${conflict}`)
             return false
           }
         }
@@ -413,7 +413,7 @@ export function use(plugin: IPlugin) {
   // Register plugin
   const registered = plugins.register(plugin)
   if (!registered) {
-    console.warn(`[Node-Trace] Failed to register plugin ${plugin.name}`)
+    console.warn(`[web-trace] Failed to register plugin ${plugin.name}`)
     return
   }
 

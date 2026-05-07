@@ -454,7 +454,7 @@ export const behaviorPlugin: IPlugin = {
     const sessionPlugin = context.getPlugin("session");
     if (!sessionPlugin) {
       console.warn(
-        "[Node-Trace] behavior plugin requires session plugin to be registered",
+        "[web-trace] behavior plugin requires session plugin to be registered",
       );
       return;
     }

@@ -81,14 +81,14 @@ export const pageviewPlugin: IPlugin = {
 
     if (!sessionPlugin) {
       console.warn(
-        "[Node-Trace] pageview plugin requires session plugin to be registered",
+        "[web-trace] pageview plugin requires session plugin to be registered",
       );
       return;
     }
 
     if (!behaviorPlugin) {
       console.warn(
-        "[Node-Trace] pageview plugin requires behavior plugin to be registered",
+        "[web-trace] pageview plugin requires behavior plugin to be registered",
       );
       return;
     }

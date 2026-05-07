@@ -295,7 +295,7 @@ export class ErrorHandler {
     if (this.stats.rate.lastMinute > 10) {
       // More than 10 errors per minute, there may be a problem
       if (typeof console !== "undefined") {
-        console.warn("[Node-Trace] High error rate detected:", {
+        console.warn("[web-trace] High error rate detected:", {
           errorsPerMinute: this.stats.rate.lastMinute,
           consecutiveErrors: this.stats.consecutiveErrors,
           maxConsecutiveErrors: this.stats.maxConsecutiveErrors,
@@ -307,7 +307,7 @@ export class ErrorHandler {
     if (this.stats.consecutiveErrors > 5) {
       // More than 5 consecutive errors, there may be a serious problem
       if (typeof console !== "undefined") {
-        console.error("[Node-Trace] Critical error sequence detected:", {
+        console.error("[web-trace] Critical error sequence detected:", {
           consecutiveErrors: this.stats.consecutiveErrors,
           lastError: error,
           recentErrors: this.errors.slice(-3),
@@ -326,7 +326,7 @@ export class ErrorHandler {
     const shouldLog = this.shouldLog(error.level);
 
     if (debugEnabled && shouldLog) {
-      const prefix = `[Node-Trace] [${error.type.toUpperCase()}]${error.code ? ` [${error.code}]` : ""}`;
+      const prefix = `[web-trace] [${error.type.toUpperCase()}]${error.code ? ` [${error.code}]` : ""}`;
       const contextStr = error.context
         ? ` Context: ${JSON.stringify(error.context)}`
         : "";

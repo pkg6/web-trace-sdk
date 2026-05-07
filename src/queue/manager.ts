@@ -165,7 +165,7 @@ export class QueueManager {
     this.dedupe.removeBatch(removedEvents);
 
     if (this.config.debug) {
-      console.log("[Node-Trace] Queue full, removed events:", removeCount);
+      console.log("[web-trace] Queue full, removed events:", removeCount);
     }
   }
 
@@ -176,7 +176,7 @@ export class QueueManager {
     if (this.dedupe.exists(event)) {
       if (this.config?.debug) {
         console.log(
-          "[Node-Trace] Event already exists, skipping:",
+          "[web-trace] Event already exists, skipping:",
           event.event,
         );
       }
@@ -202,12 +202,12 @@ export class QueueManager {
 
     if (this.config.debug) {
       console.log(
-        "[Node-Trace] Event pushed:",
+        "[web-trace] Event pushed:",
         event.event,
         "priority:",
         priority,
       );
-      console.log("[Node-Trace] Queue length:", this.queue.length);
+      console.log("[web-trace] Queue length:", this.queue.length);
     }
 
     this.cachedPressure = null;
@@ -260,14 +260,14 @@ export class QueueManager {
     if (!this.config) return;
 
     if (this.config.debug) {
-      console.log("[Node-Trace] Send failed, batch size:", batch.length);
+      console.log("[web-trace] Send failed, batch size:", batch.length);
     }
 
     if (this.config.offlineEnabled && isBrowser()) {
       try {
         await DB.add(batch);
         if (this.config.debug) {
-          console.log("[Node-Trace] Events cached offline:", batch.length);
+          console.log("[web-trace] Events cached offline:", batch.length);
         }
       } catch (error) {
         handleNetworkError(error, { eventCount: batch.length });
@@ -282,7 +282,7 @@ export class QueueManager {
         this.queue.unshift(...batch);
         batch.forEach((event) => this.dedupe.add(event));
         if (this.config?.debug) {
-          console.log("[Node-Trace] Retrying events:", batch.length);
+          console.log("[web-trace] Retrying events:", batch.length);
         }
         this.schedule();
       }, retryInterval);
@@ -298,7 +298,7 @@ export class QueueManager {
     batch: Payload<EventProperties>[],
   ): Promise<void> {
     if (this.config?.debug) {
-      console.log("[Node-Trace] Events sent successfully:", batch.length);
+      console.log("[web-trace] Events sent successfully:", batch.length);
     }
 
     if (isBrowser()) {
@@ -450,7 +450,7 @@ export class QueueManager {
 
         if (this.config?.debug) {
           console.log(
-            "[Node-Trace] Restored offline events:",
+            "[web-trace] Restored offline events:",
             eventsToAdd.length,
           );
         }
@@ -461,7 +461,7 @@ export class QueueManager {
 
         if (this.config?.debug) {
           console.log(
-            "[Node-Trace] All offline events are duplicates, cleared",
+            "[web-trace] All offline events are duplicates, cleared",
           );
         }
       }
