@@ -1,6 +1,6 @@
 {
   "name": "@tp5er/web-trace-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight event tracking library for Node.js and browsers, with device ID generation, browser data collection, and plugin system",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
