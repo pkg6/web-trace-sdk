@@ -175,10 +175,7 @@ export class QueueManager {
   push<T extends EventProperties>(event: Payload<T>): void {
     if (this.dedupe.exists(event)) {
       if (this.config?.debug) {
-        console.log(
-          "[web-trace] Event already exists, skipping:",
-          event.event,
-        );
+        console.log("[web-trace] Event already exists, skipping:", event.event);
       }
       return;
     }
@@ -460,9 +457,7 @@ export class QueueManager {
         await DB.clear();
 
         if (this.config?.debug) {
-          console.log(
-            "[web-trace] All offline events are duplicates, cleared",
-          );
+          console.log("[web-trace] All offline events are duplicates, cleared");
         }
       }
     } catch (error) {
