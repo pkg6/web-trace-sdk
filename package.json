@@ -46,11 +46,11 @@
   "packageManager": "pnpm@10.23.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pkg6/web-trace.git"
+    "url": "git+https://github.com/pkg6/web-trace-sdk.git"
   },
-  "homepage": "https://github.com/pkg6/web-trace#readme",
+  "homepage": "https://github.com/pkg6/web-trace-sdk#readme",
   "bugs": {
-    "url": "https://github.com/pkg6/web-trace/issues"
+    "url": "https://github.com/pkg6/web-trace-sdk/issues"
   },
   "files": [
     "dist",

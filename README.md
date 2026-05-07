@@ -411,7 +411,7 @@ handlePluginError(error, { plugin: 'custom' })
 
 ## License
 
-[Apache-2.0](https://github.com/pkg6/web-trace/blob/main/LICENSE)
+[Apache-2.0](https://github.com/pkg6/web-trace-sdk/blob/main/LICENSE)
 
 ## 作者
 
@@ -419,5 +419,5 @@ zhiqiang
 
 ## 链接
 
-- [GitHub](https://github.com/pkg6/web-trace)
-- [Issues](https://github.com/pkg6/web-trace/issues)
+- [GitHub](https://github.com/pkg6/web-trace-sdk)
+- [Issues](https://github.com/pkg6/web-trace-sdk/issues)
