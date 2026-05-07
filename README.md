@@ -1,4 +1,4 @@
-# web-trace
+# @tp5er/web-trace-sdk
 
 高性能跨端事件追踪与 RUM（真实用户监控）SDK，支持自动埋点、错误监控与离线重试。
 
@@ -17,11 +17,11 @@
 ## 安装
 
 ```bash
-npm install web-trace
+npm install @tp5er/web-trace-sdk
 # 或
-pnpm install web-trace
+pnpm add @tp5er/web-trace-sdk
 # 或
-yarn add web-trace
+yarn add @tp5er/web-trace-sdk
 ```
 
 ## 快速开始
@@ -29,7 +29,7 @@ yarn add web-trace
 ### 基础使用
 
 ```typescript
-import { init, track, use, plugins } from 'web-trace'
+import { init, track, use, plugins } from 'web-trace-sdk'
 
 // 初始化 SDK
 init({
@@ -67,7 +67,7 @@ track('button_click', {
 ### 浏览器环境使用
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/web-trace/dist/index.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tp5er/web-trace-sdk/dist/index.global.js"></script>
 <script>
   NodeTrace.init({
     appId: 'your-app-id',
@@ -322,8 +322,8 @@ use(plugins.error)
 ## 自定义插件
 
 ```typescript
-import { use } from 'web-trace'
-import type { IPlugin, IPluginContext, Payload, EventProperties } from 'web-trace'
+import { use } from '@tp5er/web-trace-sdk'
+import type { IPlugin, IPluginContext, Payload, EventProperties } from '@tp5er/web-trace-sdk'
 
 const customPlugin: IPlugin = {
   name: 'custom',
@@ -397,7 +397,7 @@ import {
   handleStorageError,
   handleBrowserError,
   handlePluginError
-} from 'web-trace'
+} from '@tp5er/web-trace-sdk'
 
 // 捕获错误
 captureError('network', '请求失败', error, { url: 'xxx' }, 'error')
